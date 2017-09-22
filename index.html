@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="es-MX">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Reporte Responsable</title>
+  <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+  <link href="./assets/css/styles.css" rel="stylesheet">
+</head>
+<body>
+  <section>
+    <div class="container">
+      <div class="row">
+        <div class="col-12">
+          <h1>Reporte Responsable</h1>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-12 my-4">
+          <form>
+            <div class="form-group">
+              <label for="contact">Persona de contacto:</label>
+              <input id="contact" name="contacto" type="text" class="form-control" placeholder="Nombre Apellido" maxlength="30">
+            </div>
+            <div class="form-group">
+              <label for="phone">Teléfono de contacto:</label>
+              <input id="phone" name="telefono" type="tel" class="form-control" placeholder="5512345678" maxlength="10">
+            </div>
+            <div class="form-group">
+              <label for="observation">Observaciones:</label>
+              <textarea name="observation" name="observaciones" id="observation" class="form-control" placeholder="Observaciones" rows="3"></textarea>
+            </div>
+            <div class="form-group">
+              <label for="file">Fotografía:</label>
+              <input type="file" name="file" id="file" class="form-control-file" accept="image/*">
+            </div>
+            <div class="form-group">
+              <label for="map">Ubica la zona:</label>
+              <div id="map" class="map"></div>
+            </div>
+            <button type="submit" class="btn btn-primary">Enviar</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer class="bg-dark text-white">
+    <div class="container">
+      <div class="row pt-2">
+        <div class="col-6 col-sm-8">
+          <div class="row">
+            <div class="col-12">
+              <h6></h6>
+            </div>
+          </div>
+        </div>
+        <div class="col-6 col-sm-4">
+          <div class="row">
+            <div class="col-12">
+              <h6>Redes sociales</h6>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-12">
+              <ul class="list-inline social-networks">
+                <li class="list-inline-item">
+                  <a href="">
+                    <i class="fa fa-stack fa-facebook"></i>
+                  </a>
+                </li>
+                <li class="list-inline-item">
+                  <a href="">
+                    <i class="fa fa-stack fa-twitter"></i>
+                  </a>
+                </li>
+                <li class="list-inline-item">
+                  <a href="">
+                    <i class="fa fa-stack fa-linkedin"></i>
+                  </a>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-12">
+          <p>Diseñado y programado con ❤️ por Chilango Labs ®️</p>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/js/bootstrap.min.js"></script>
+  <script>
+    var marker;
+
+    function initMap() {
+      if (navigator.geolocation) {
+        var map = new google.maps.Map(document.getElementById('map'), {
+          center: {lat: 19.432608, lng: -99.133209},
+          zoom: 10
+        });
+
+        navigator.geolocation.getCurrentPosition(function (position) {
+          var geolocate = new google.maps.LatLng(position.coords.latitude, position.coords.longitude);
+
+          marker = new google.maps.Marker({
+            map,
+            position: geolocate,
+            animation: google.maps.Animation.DROP,
+            draggable: true
+          });
+
+          map.setZoom(16);
+          map.panTo(marker.position);
+        });
+      } else {
+        document.getElementById('map').innerHTML('Tu navegador es muy antiguo')
+      }
+    }
+
+    document.getElementsByTagName('form')[0].addEventListener('submit', function (e) {
+      e.preventDefault();
+
+      var formData = new FormData();
+      formData.append('contacto', document.getElementById('contact').value);
+      formData.append('telefono', document.getElementById('phone').value);
+      formData.append('observaciones', document.getElementById('observation').value);
+      formData.append('file', document.getElementById('file').files[0]);
+      formData.append('latitud', marker.position.lat());
+      formData.append('longitud', marker.position.lng());
+      console.log(formData);
+
+      var xhr = new XMLHttpRequest();
+
+      xhr.addEventListener('error', function (e) {
+        alert('Ops! Ocurrió un error');
+      });
+
+      xhr.open('POST', 'http://criptexfc.com/tlalolin/admin/app/addMensaje', true);
+      xhr.send(formData);
+    }, false);
+  </script>
+  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA4EGqTMat8krNot2Bm04FUUZ8uSHDk5ro&callback=initMap" async defer></script>
+</body>
+</html>

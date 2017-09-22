@@ -1,0 +1,43 @@
+section {
+  min-height: 100vh;
+}
+
+.map {
+  min-height: 50vh;
+}
+
+.social-networks li a {
+  background-color: #fff;
+  border-radius: 100%;
+  display: block;
+  height: 2rem;
+  text-align: center;
+  width: 2rem;
+}
+
+.social-networks li:nth-child(1) a {
+  color: #3b5998;
+}
+
+.social-networks li:nth-child(1) a:hover {
+  background-color: #3b5998;
+  color: #fff;
+}
+
+.social-networks li:nth-child(2) a {
+  color: #00aced;
+}
+
+.social-networks li:nth-child(2) a:hover {
+  background-color: #00aced;
+  color: #fff;
+}
+
+.social-networks li:nth-child(3) a {
+  color: #0077b5;
+}
+
+.social-networks li:nth-child(3) a:hover {
+  background-color: #0077b5;
+  color: #fff;
+}
