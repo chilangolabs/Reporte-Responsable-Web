@@ -139,6 +139,7 @@
       });
 
       xhr.addEventListener('load', function (e) {
+        document.getElementsByTagName('form')[0].reset();
         alert('Gracias por enviar tu reporte será atendido a la brevedad');
       });
 
