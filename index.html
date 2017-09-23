@@ -142,6 +142,10 @@
         alert('Ops! Ocurrió un error');
       });
 
+      xhr.addEventListener('load', function (e) {
+        alert('Gracias por enviar tu reporte será atendido a la brevedad');
+      });
+
       xhr.open('POST', 'https://criptexfc.com/tlalolin/admin/app/addMensaje', true);
       xhr.send(formData);
     }, false);
