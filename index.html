@@ -20,27 +20,179 @@
       <div class="row">
         <div class="col-12 my-4">
           <form>
-            <div class="form-group">
-              <label for="contact">Persona de contacto:</label>
-              <input id="contact" name="contacto" type="text" class="form-control" placeholder="Nombre Apellido" maxlength="30" required>
+            <div class="form-row">
+              <div class="form-group col-md-4">
+                <div class="form-group">
+                  <label for="contact" class="col-form-label">Nombre Completo del Contacto:</label>
+                  <input id="contact" name="contacto" type="text" class="form-control" placeholder="Nombre Apellido" maxlength="30" required>
+                </div>
+              </div>
+              <div class="form-group col-md-4">
+                <div class="form-group">
+                  <label for="phone" class="col-form-label">Teléfono de contacto:</label>
+                  <input id="phone" name="telefono" type="tel" class="form-control" placeholder="5512345678" maxlength="10" required>
+                </div>
+              </div>
+              <div class="form-group col-md-4">
+                <div class="form-group">
+                  <label for="email" class="col-form-label">Correo electrónico:</label>
+                  <input id="email" name="correo" type="email" class="form-control" placeholder="nombre@example.com">
+                </div>
+              </div>
             </div>
-            <div class="form-group">
-              <label for="phone">Teléfono de contacto:</label>
-              <input id="phone" name="telefono" type="tel" class="form-control" placeholder="5512345678" maxlength="10" required>
+            <div class="form-row">
+              <div class="form-group col-12">
+                <label for="calle" class="col-form-label">Calle:</label>
+                <input id="calle" name="calle" type="text" class="form-control" placeholder="Calle" required>
+              </div>
+              <div class="form-group col-md-3">
+                <label for="noExterior" class="col-form-label">Número exterior:</label>
+                <input id="noExterior" name="numero" type="text" class="form-control" placeholder="00" required>
+              </div>
+              <div class="form-group col-md-3">
+                <label for="colonia" class="col-form-label">Colonia</label>
+                <input id="colonia" name="colonia" type="text" class="form-control" placeholder="Colonia" required>
+              </div>
+              <div class="form-group col-md-3">
+                <label for="municipio" class="col-form-label">Delegación o Municipio</label>
+                <input id="municipio" name="municipio" type="text" class="form-control" placeholder="Municipio" required>
+              </div>
+              <div class="form-group col-md-3">
+                <label for="zipCode" class="col-form-label">Código postal:</label>
+                <input id="zipCode" name="cp" type="text" class="form-control" maxlength="5" minlength="5" placeholder="00000" required>
+              </div>
+              <div class="form-group col-md-4">
+                <label for="tipo" class="col-form-label">Tipo de inmueble:</label>
+                <select id="tipo" name="tipo" class="form-control">
+                  <option value="hospital">Hospital</option>
+                  <option value="escuela">Escuela</option>
+                  <option value="instanciaInfantil">Instancia infantil</option>
+                  <option value="departamentos">Departamentos</option>
+                  <option value="casa">Casa</option>
+                  <option value="comercio">Comercio</option>
+                  <option value="oficinasPublicas">Oficinas públicas</option>
+                  <option value="oficinasPrivadas">Oficinas privadas</option>
+                  <option value="industria">Industria</option>
+                  <option value="centroDeReunion">Centro de reunión</option>
+                  <option value="estacionamiento">Estacionamiento</option>
+                  <option value="recreativo">Recreativo</option>
+                  <option value="otro">Otro</option>
+                </select>
+              </div>
+              <div class="form-group col-md-4">
+                <label for="niveles" class="col-form-label">¿Cuantos pisos tiene el inmueble?</label>
+                <input id="niveles" name="niveles" type="number" class="form-control" min="1" max="60" required>
+              </div>
+              <div class="form-group col-md-4">
+                <label for="residentes" class="col-form-label">¿Cuántas personas ocupan el inmueble? (Aprox)</label>
+                <input id="residentes" name="residentes" type="number" class="form-control" min="1" max="5000" required>
+              </div>
+              <div class="form-group col-md-4">
+                <label class="col-form-label">¿Cuál es la principal afectación en el inmueble?</label>
+                <div class="form-check">
+                  <label class="form-check-label">
+                    <input type="checkbox" name="afectaciones" class="form-check-input" value="derrumbeTotal">
+                    Derrumbe Total
+                  </label>
+                </div>
+                <div class="form-check">
+                  <label class="form-check-label">
+                    <input type="checkbox" name="afectaciones" class="form-check-input" value="derrumbeParcial">
+                    Derrumbe Parcial
+                  </label>
+                </div>
+                <div class="form-check">
+                  <label class="form-check-label">
+                    <input type="checkbox" name="afectaciones" class="form-check-input" value="grietasMuros">
+                    Grietas en Muros y Acabados
+                  </label>
+                </div>
+                <div class="form-check">
+                  <label class="form-check-label">
+                    <input type="checkbox" name="afectaciones" class="form-check-input" value="grietasTrabes">
+                    Grietas en Trabes y Columnas
+                  </label>
+                </div>
+                <div class="form-check">
+                  <label class="form-check-label">
+                    <input type="checkbox" name="afectaciones" class="form-check-input" value="asentamiento">
+                    Asentamiento o Hundimiento
+                  </label>
+                </div>
+                <div class="form-check">
+                  <label class="form-check-label">
+                    <input type="checkbox" name="afectaciones" class="form-check-input" value="danoVidrios">
+                    Daños en vidrios y cancelerías
+                  </label>
+                </div>
+              </div>
+              <div class="form-group col-md-4">
+                <label class="col-form-label">Ubicación de daños del inmueble</label>
+                <div class="form-check">
+                  <label class="form-check-label">
+                    <input type="radio" name="ubicacion" class="form-check-input" value="interior">
+                    Interior
+                  </label>
+                </div>
+                <div class="form-check">
+                  <label class="form-check-label">
+                    <input type="radio" name="ubicacion" class="form-check-input" value="exterior">
+                    Exterior
+                  </label>
+                </div>
+                <div class="form-check">
+                  <label class="form-check-label">
+                    <input type="radio" name="ubicacion" class="form-check-input" value="ambas">
+                    Ambas
+                  </label>
+                </div>
+              </div>
+              <div class="form-group col-md-4">
+                <label class="col-form-label">¿Ya fue evacuado?</label>
+                <div class="form-check">
+                  <label class="form-check-label">
+                    <input type="radio" name="evacuado" class="form-check-input" value="si">
+                    Si
+                  </label>
+                </div>
+                <div class="form-check">
+                  <label class="form-check-label">
+                    <input type="radio" name="evacuado" class="form-check-input" value="no">
+                    No
+                  </label>
+                </div>
+                <div class="form-check">
+                  <label class="form-check-label">
+                    <input type="radio" name="evacuado" class="form-check-input" value="parcialmente">
+                    Parcialmente
+                  </label>
+                </div>
+              </div>
+              <div class="form-group col-12">
+                <label for="observation">Observaciones:</label>
+                <textarea name="observaciones" id="observation" class="form-control" placeholder="Observaciones" rows="3" required></textarea>
+              </div>
             </div>
-            <div class="form-group">
-              <label for="observation">Observaciones:</label>
-              <textarea name="observaciones" id="observation" class="form-control" placeholder="Observaciones" rows="3" required></textarea>
+            <div class="form-row">
+              <div class="form-group col-md-6">
+                <label for="file" class="col-form-label">Fotografía de Fachada</label>
+                <input type="file" name="file" id="file" class="form-control" accept="image/*" required>
+              </div>
+              <div class="form-group col-md-6">
+                <label for="file_elementos" class="col-form-label">Fotografías de Elementos Dañados</label>
+                <input type="file" name="file_elementos" id="file_elementos" class="form-control" accept="image/*">
+              </div>
             </div>
-            <div class="form-group">
-              <label for="file">Fotografía:</label>
-              <input type="file" name="file" id="file" class="form-control-file" accept="image/*" required>
+            <div class="form-row">
+              <div class="form-group col-12">
+                <label>Ubica la zona:</label>
+                <small class="form-text text-muted">Puedes arrastrar el pin para mejorar la exactitud de la ubicación.</small>
+                <div id="map" class="map"></div>
+              </div>
             </div>
-            <div class="form-group">
-              <label for="map">Ubica la zona:</label>
-              <div id="map" class="map"></div>
+            <div class="form-row">
+              <button type="submit" class="btn btn-primary">Enviar</button>
             </div>
-            <button type="submit" class="btn btn-primary">Enviar</button>
           </form>
         </div>
       </div>
@@ -53,7 +205,7 @@
         <div class="col-6 col-sm-8">
           <div class="row">
             <div class="col-12">
-              <h6></h6>
+              <!-- <h6></h6> -->
             </div>
           </div>
         </div>
@@ -139,8 +291,9 @@
       });
 
       xhr.addEventListener('load', function (e) {
+        var res = JSON.parse(e.target.response);
         document.getElementsByTagName('form')[0].reset();
-        alert('Gracias por enviar tu reporte será atendido a la brevedad');
+        alert(`Gracias por enviar tu reporte será atendido a la brevedad.\nTu número de reporte es: ${res.random_id}\nEs muy importante que lo guardes muy bien`);
       });
 
       xhr.open('POST', 'https://criptexfc.com/tlalolin/admin/app/addMensaje', true);
